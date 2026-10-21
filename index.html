@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- Memberi tahu browser bahwa ini dokumen HTML versi 5 -->
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ScanMenu - Menu Digital Kafe</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="atas">
+    <div>
+      <h1>Kafe Senja</h1>
+      <p id="infoMeja">Scan, pilih, pesan.</p>
+    </div>
+    <button id="tombolTema" class="ikon" aria-label="Ganti mode gelap/terang">🌙</button>
+  </header>
+
+  <main>
+    <input id="cari" type="search" placeholder="Cari menu, misalnya kopi susu" aria-label="Cari menu">
+    <div id="kategori" class="baris-filter" role="tablist" aria-label="Kategori menu"></div>
+    <div class="baris-filter">
+      <label class="chip-cek"><input type="checkbox" id="filterMurah"> Di bawah Rp 20.000</label>
+      <label class="chip-cek"><input type="checkbox" id="filterFavorit"> Favorit saya</label>
+      <label class="chip-cek"><input type="checkbox" id="filterHalal"> Halal</label>
+      <label class="chip-cek"><input type="checkbox" id="filterVeg"> Vegetarian</label>
+    </div>
+    <section id="daftarMenu" class="daftar" aria-live="polite"></section>
+  </main>
+
+  <button id="bukaKeranjang" class="bar-keranjang" hidden>
+    <span id="jumlahItem">0 item</span>
+    <strong id="totalBar">Rp 0</strong>
+  </button>
+
+  <aside id="panel" class="panel" hidden>
+    <div class="panel-isi">
+      <div class="panel-kepala">
+        <h2>Pesananmu</h2>
+        <button id="tutupPanel" class="ikon" aria-label="Tutup">✕</button>
+      </div>
+      <ul id="daftarKeranjang" class="keranjang"></ul>
+      <div class="ringkasan">
+        <div class="baris"><span>Total</span><strong id="totalPanel">Rp 0</strong></div>
+        <div class="baris">
+          <label for="jumlahOrang">Patungan berapa orang?</label>
+          <input id="jumlahOrang" type="number" min="1" max="20" value="1">
+        </div>
+        <div class="baris"><span>Per orang</span><strong id="perOrang">Rp 0</strong></div>
+      </div>
+      <input id="namaPemesan" type="text" placeholder="Nama pemesan (opsional)" maxlength="30">
+      <input id="catatan" type="text" placeholder="Catatan, misalnya less sugar" maxlength="80">
+      <button id="kirimWA" class="utama">Kirim pesanan ke WhatsApp</button>
+      <button id="kosongkan" class="sekunder">Kosongkan pesanan</button>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
