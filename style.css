@@ -1,0 +1,45 @@
+:root {
+  --latar: #22d44f;
+  --kartu: #ffffff;
+  --teks: #14211c;
+  --teks-pudar: #5b6b64;
+  --garis: #d8e2dc;
+  --utama: #1f5c4a;
+  --di-atas-utama: #ffffff;
+  --sorot: #ffd84d;
+  --habis: #b4410f;
+  color-scheme: light;
+}
+:root[data-tema="gelap"] {
+  --latar: #0f1a16;
+  --kartu: #172520;
+  --teks: #eaf2ee;
+  --teks-pudar: #9bb0a6;
+  --garis: #28392f;
+  --utama: #5fcf9f;
+  --di-atas-utama: #0f1a16;
+  --habis: #ff9b6b;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--latar); color: var(--teks);
+  font-family: "DM Sans", system-ui, sans-serif; line-height: 1.5; padding-bottom: 90px;
+}
+h1, h2 { font-family: "Bricolage Grotesque", sans-serif; margin: 0; }
+.atas { display: flex; justify-content: space-between; align-items: center; padding: 20px 16px 12px; max-width: 720px; margin: 0 auto; }
+main { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+#cari, .panel-isi input { width: 100%; padding: 12px 14px; border: 1px solid var(--garis); border-radius: 12px; background: var(--kartu); }
+.baris-filter { display: flex; gap: 8px; overflow-x: auto; padding: 10px 0; }
+.chip, .chip-cek { flex: none; padding: 8px 14px; border: 1px solid var(--garis); border-radius: 999px; background: var(--kartu); cursor: pointer; }
+.daftar { display: grid; gap: 12px; margin-top: 6px; }
+.kartu { display: grid; grid-template-columns: 64px 1fr auto; gap: 12px; align-items: center; padding: 12px; background: var(--kartu); border: 1px solid var(--garis); border-radius: 14px; }
+.bar-keranjang { position: fixed; left: 16px; right: 16px; bottom: 16px; max-width: 688px; margin: 0 auto; display: flex; justify-content: space-between; padding: 16px 20px; border: 0; border-radius: 16px; background: var(--utama); color: var(--di-atas-utama); cursor: pointer; }
+.bar-keranjang[hidden] { display: none; }
+.panel { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: flex-end; justify-content: center; z-index: 10; }
+.panel[hidden] { display: none; }
+.panel-isi { width: 100%; max-width: 720px; max-height: 90vh; overflow-y: auto; background: var(--latar); border-radius: 20px 20px 0 0; padding: 20px 16px; display: grid; gap: 12px; }
+.utama, .sekunder { padding: 14px; border-radius: 12px; cursor: pointer; font-weight: 700; }
+.utama { border: 0; background: var(--utama); color: var(--di-atas-utama); }
+.sekunder { border: 1px solid var(--garis); background: transparent; }
+@media (min-width: 640px) { .daftar { grid-template-columns: 1fr 1fr; } }
